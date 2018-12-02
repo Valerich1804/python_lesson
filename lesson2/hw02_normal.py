@@ -5,14 +5,15 @@
 # если такой корень вообще можно извлечь
 # Пример: Дано: [2, -5, 8, 9, -25, 25, 4]   Результат: [3, 5, 2]
 
+from math import sqrt
 
-lst1 = [2, -5, 8, 9, -25, 25, 4]
+list_1 = [2, -5, 8, 9, -25, 25, 4]
 new_list = []
 
-for i in range(len(lst1)):
-    if lst1[i] > 0:
-        if sqrt(lst1[i]).is_integer():
-            new_list.append(int(sqrt(lst1[i])))
+for i in range(len(list_1)):
+    if list_1[i] > 0:
+        if sqrt(list_1[i]).is_integer():
+            new_list.append(int(sqrt(list_1[i])))
 
 print('Новый список: {}'.format(new_list))
 
@@ -83,6 +84,16 @@ print('{} {} {} года'.format(days[int(d[0])-1], months[int(d[1])-1], d[2]))
 # Подсказка:
 # для получения случайного числа используйте функцию randint() модуля random
 
+from random import randint
+
+list_random = []
+n = 20
+
+for i in range(n):
+    list_random.append(randint(-100, 100))
+
+print ("Случайный список {}".format(list_random))
+
 
 # Задача-4: Дан список, заполненный произвольными целыми числами.
 # Получите новый список, элементами которого будут: 
@@ -90,3 +101,24 @@ print('{} {} {} года'.format(days[int(d[0])-1], months[int(d[1])-1], d[2]))
 # например, lst = [1, 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 2, 4, 5, 6]
 # б) элементы исходного списка, которые не имеют повторений:
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
+
+lst = [1, 2, 4, 5, 6, 2, 5, 2] # неповторяющиеся элементы списка
+
+lst2 = set(lst)
+
+print ('Новый список: {}'.format(lst2))
+
+
+
+lst = [1, 2, 4, 5, 6, 2, 5, 2] # не имеют повторений
+lst2 = []
+
+for i in range(len(lst)):
+    count = 0
+    for y in range(len(lst)):
+        if lst[i] == lst[y]:
+            count += 1
+    if count < 2:
+        lst2.append(lst[i])
+
+print('Новый список: {}'.format(lst2))
